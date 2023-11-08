@@ -14,17 +14,13 @@ return new class extends Migration
         Schema::create('catalogo_detalle', function (Blueprint $table) {
             $table->id('IN_ID');
             $table->foreignId('IN_ID_CATALOGO')->constrained('Catalogo','IN_ID');
-            // IN_ID
-            // IN_ID_CATALOGO
-            // VC_CODIGO
-            // VC_VALOR
-            // VC_DESCRIPCION
-            // IN_ORDEN
-            // BT_ESTADO_FILA
-            // VC_USUARIO_CREACION
-            // DT_FECHA_CREACION
-            // VC_USUARIO_MODIFICACION
-            // DT_FECHA_MODIFICACION
+            $table->string('VC_CODIGO')->nullable();
+            $table->string('VC_VALOR')->nullable();
+            $table->string('VC_DESCRIPCION')->nullable();
+            $table->integer('IN_ORDEN')->nullable();
+            $table->boolean('BT_ESTADO_FILA')->nullable();
+            $table->string('VC_USUARIO_CREACION')->nullable();
+            $table->string('VC_USUARIO_MODIFICACION')->nullable();
             $table->timestamps();
         });
     }

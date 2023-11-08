@@ -25,6 +25,9 @@ class RedirectIfAuthenticated
             }
         }
 
+        // dd($request);
+
         return $next($request);
+        // return redirect('/dashboard');
     }
 }

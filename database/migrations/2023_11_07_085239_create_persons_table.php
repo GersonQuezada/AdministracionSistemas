@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('VC_DNI');
             $table->boolean('BT_ESTADO_FILA');
             $table->string('VC_USUARIO_CREACION');
-            $table->string('VC_USUARIO_MODIFICACION');
+            $table->string('VC_USUARIO_MODIFICACION')->nullable();
             $table->timestamps();
         });
     }
