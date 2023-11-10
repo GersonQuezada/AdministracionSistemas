@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Personas\PersonasController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('Personas', PersonasController::class);
-
 require __DIR__.'/auth.php';
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('Personas',PersonasController::class);

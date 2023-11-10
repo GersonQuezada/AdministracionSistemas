@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Personas;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -20,7 +21,11 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $persona = Personas::paginate(15);
+
+        // dd($persona);
+
+        return view('auth.register', compact('persona'));
     }
 
     /**
@@ -30,16 +35,16 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            // 'name' => ['required', 'string', 'max:255'],
-            'VC_NOMBRE_USUARIO' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'VC_PASSWORD' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        // ]);
 
         $user = User::create([
 
-            'VC_NOMBRE_USUARIO' => 'gerson.quezada@manuela.org.pe',
-            'VC_PASSWORD' => Hash::make('123456789'),
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));

@@ -6,13 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('Personas', function (Blueprint $table) {
-            $table->id('IN_ID');
+            $table->id();
             $table->string('VC_NOMBRE');
             $table->string('VC_APELLIDO_PATERNO');
             $table->string('VC_APELLIDO_MATERNO');

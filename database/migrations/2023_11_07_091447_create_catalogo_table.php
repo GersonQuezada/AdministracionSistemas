@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Catalogo', function (Blueprint $table) {
-            $table->id('IN_ID');
+            $table->id();
             $table->string('VC_CODIGO')->nullable();
             $table->string('VC_NOMBRE')->nullable();
             $table->boolean('BT_ESTADO_FILA')->nullable();

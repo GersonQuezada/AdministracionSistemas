@@ -19,8 +19,11 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
+        // dd($guards);
+
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+
                 return redirect(RouteServiceProvider::HOME);
             }
         }
@@ -28,6 +31,6 @@ class RedirectIfAuthenticated
         // dd($request);
 
         return $next($request);
-        // return redirect('/dashboard');
+        // return redirect()->intended('dashboard');
     }
 }

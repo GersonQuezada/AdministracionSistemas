@@ -15,8 +15,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Roles', function (Blueprint $table) {
-            $table->id('VC_ROL_ID');
-            $table->foreignId('VC_SISTEMA_ID')->constrained('Sistemas','VC_SISTEMA_ID');
+            $table->id();
+            $table->foreignId('ID_SISTEMA')->constrained('Sistemas','id');
             $table->string('VC_DESCRIPCION');
             $table->boolean('BT_ESTADO_FILA');
             $table->string('VC_USUARIO_CREACION');

@@ -14,8 +14,9 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $contraseña = Hash::make('123456789');
-        echo $contraseña;
+        $personas = Personas::find(12);
+
+        dd($personas);
     }
 
     /**
@@ -23,7 +24,7 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

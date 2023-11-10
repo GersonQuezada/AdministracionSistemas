@@ -15,7 +15,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Sistemas', function (Blueprint $table) {
-            $table->id('VC_SISTEMA_ID');
+            $table->id();
             $table->string('VC_DESCRIPCION');
             $table->boolean('BT_ESTADO_FILA');
             $table->string('VC_USUARIO_CREACION');

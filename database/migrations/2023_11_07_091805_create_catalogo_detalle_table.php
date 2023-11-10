@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('catalogo_detalle', function (Blueprint $table) {
-            $table->id('IN_ID');
-            $table->foreignId('IN_ID_CATALOGO')->constrained('Catalogo','IN_ID');
+            $table->id();
+            $table->foreignId('ID_CATALOGO')->constrained('Catalogo','id');
             $table->string('VC_CODIGO')->nullable();
             $table->string('VC_VALOR')->nullable();
             $table->string('VC_DESCRIPCION')->nullable();

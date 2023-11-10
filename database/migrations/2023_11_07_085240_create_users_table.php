@@ -10,14 +10,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
         Schema::create('Usuarios', function (Blueprint $table) {
-            $table->id('IN_ID');
-            $table->foreignId('IN_PERSONA_ID')->constrained( 'Personas' , 'IN_ID')->nullable();
-            $table->string('VC_NOMBRE_USUARIO')->unique();
-            $table->string('VC_PASSWORD');
-            $table->string('VC_CORREO')->nullable();
+            $table->id();
+            $table->foreignId('id_persona')->constrained( 'Personas' , 'id')->default('88');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->string('VC_CELULAR')->nullable();
             $table->dateTime('DT_EXPIRACION_PASSWORD')->nullable();
             $table->boolean('BT_ESTADO_FILA')->nullable();
@@ -26,7 +26,6 @@ return new class extends Migration
             $table->boolean('BT_ACT_PASSWORD_OBLIGATORIO')->nullable();
             $table->rememberToken();
             $table->timestamps();
-
         });
     }
 
