@@ -6,10 +6,10 @@
         <div>
             <x-input-label for="name" :value="__('Name')" />
             {{-- <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> --}}
-            <select  id="name"  name="name" :value="old('name')" required>
+            <select  class="select" id="name"  name="name" :value="old('name')" required>
                 <option>seleccionar</option>
                 @foreach ($persona as $p)
-                    <option value= $p  > seleccionar</option>
+                <option value="{{ $p->id }}">{{$p->VC_NOMBRE }} {{$p->VC_APELLIDO_PATERNO }}</option>
                 @endforeach
             </select>
 

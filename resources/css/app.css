@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.select{
+    @apply w-full block shadow-sm rounded-lg
+}
