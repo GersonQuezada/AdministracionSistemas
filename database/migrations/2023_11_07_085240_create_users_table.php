@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('Usuarios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_persona')->constrained( 'Personas' , 'id')->default('88');
+            $table->foreignId('id_persona')->constrained( 'Personas' , 'id');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('VC_CELULAR')->nullable();
