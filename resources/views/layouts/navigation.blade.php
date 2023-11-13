@@ -13,8 +13,21 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Usuarios') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('Personas.index')" :active="request()->routeIs('Personas')">
+                        {{ __('Personas') }}
+                    </x-nav-link>
+                    {{-- <x-nav-link :href="route('')" :active="request()->routeIs('Roles')">
+                        {{ __('Roles') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('')" :active="request()->routeIs('Sistemas')">
+                        {{ __('Sistemas') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('')" :active="request()->routeIs('Sucursales')">
+                        {{ __('Sucursales') }}
+                    </x-nav-link> --}}
+
                 </div>
             </div>
 

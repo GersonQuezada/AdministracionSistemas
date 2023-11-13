@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Personas;
 use App\Http\Controllers\Controller;
 use App\Models\Personas;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class PersonasController extends Controller
 {
@@ -16,7 +15,8 @@ class PersonasController extends Controller
     {
         $personas = Personas::find(12);
 
-        dd($personas);
+        // dd($personas);
+        return view('personas.index');
     }
 
     /**
@@ -25,8 +25,18 @@ class PersonasController extends Controller
     public function create()
     {
 
+        $personas = Personas::find(12);
+
+        dd($personas);
     }
 
+    public function BusquedaSelect2(Request $request){
+
+        $personaBusqueda = Personas::where('VC_NOMBRECOMPLETO','like','%'.$request->name.'%');
+        // dd($personaBusqueda);
+        return $personaBusqueda->paginate(10,['*'],'page',$request->page);
+        // return $personaBusqueda->paginate(10);
+    }
     /**
      * Store a newly created resource in storage.
      */

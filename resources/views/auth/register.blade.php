@@ -6,11 +6,7 @@
         <div>
             <x-input-label for="name" :value="__('Name')" />
             {{-- <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> --}}
-            <select  class="select" id="name"  name="name" :value="old('name')" required>
-                <option>seleccionar</option>
-                @foreach ($persona as $p)
-                <option value="{{ $p->id }}">{{$p->VC_NOMBRE }} {{$p->VC_APELLIDO_PATERNO }}</option>
-                @endforeach
+            <select  class="select" id="name"  name="name">
             </select>
 
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -56,4 +52,49 @@
             </x-primary-button>
         </div>
     </form>
+    <script type="text/javascript">
+
+        $("#name").select2();
+        $("#name").select2({
+            ajax: {
+                url:'{{ (URL('/Persona/BusquedaSelect2')) }}',
+                dataType: 'json',
+                type:'get',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        name: params.term, // search term ,
+                        page: params.page
+                    };
+                },
+                processResults: function (data,params) {
+                    params.page= params.page|| 1;
+                    // console.log(data.data[0]);
+
+                    return {
+                        results:data.data,
+                        pagination: {
+                            more:data.last_page!=params.page
+                        }
+                    };
+                },
+                cache: true
+            },
+            placeholder: 'Buscar nombre',
+            templateResult: templateResult,
+            templateSelection: templateSelection
+
+        });
+
+        function templateResult(data) {
+            if(data.loaging){
+                return data.text
+            }
+            return data.VC_NOMBRECOMPLETO
+        }
+
+        function templateSelection(data){
+            return data.VC_NOMBRECOMPLETO
+        }
+    </script>
 </x-guest-layout>

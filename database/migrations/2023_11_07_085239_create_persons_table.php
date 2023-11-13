@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('VC_NOMBRE');
             $table->string('VC_APELLIDO_PATERNO');
             $table->string('VC_APELLIDO_MATERNO');
+            $table->string('VC_NOMBRECOMPLETO');
             $table->string('VC_DNI');
             $table->boolean('BT_ESTADO_FILA');
             $table->string('VC_USUARIO_CREACION');
