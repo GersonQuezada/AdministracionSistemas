@@ -40,7 +40,7 @@ class PersonasController extends Controller
     }
 
     public function BusquedaSelect2(Request $request){
-
+        // dd($request->page);
         $personaBusqueda = Personas::where('VC_NOMBRECOMPLETO','like','%'.$request->name.'%');
         // dd($personaBusqueda);
         return $personaBusqueda->paginate(10,['*'],'page',$request->page);

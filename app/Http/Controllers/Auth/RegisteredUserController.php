@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Personas;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -21,14 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $persona = Personas::paginate(15);
-
-        // $persona =  Personas::select
-
-
-        // dd($persona);
-
-        return view('auth.register', compact('persona'));
+        return view('auth.register');
     }
 
     /**
@@ -43,8 +35,6 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
-        // dd($request);
 
         $user = User::create([
             'id_persona' => $request->name,
