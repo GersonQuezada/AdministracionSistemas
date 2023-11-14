@@ -13,10 +13,19 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $personas = Personas::find(12);
+        $Personas = Personas::paginate(50);
+
+        $heads = [
+            'DNI',
+            'Nombres',
+            'Apellido Paterno',
+            'Apellido Materno',
+            'Estado',
+            ['label' => 'Actions', 'no-export' => true, 'width' => 5],
+        ];
 
         // dd($personas);
-        return view('personas.index');
+        return view('personas.index',compact('Personas','heads'));
     }
 
     /**
