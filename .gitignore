@@ -6,7 +6,7 @@
 /storage/*.key
 /vendor
 
-# */jeroennoten/
+# */jeroennoten/*
 # .env
 .env.backup
 .env.production
