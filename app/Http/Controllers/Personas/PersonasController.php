@@ -13,19 +13,12 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $Personas = Personas::paginate(50);
 
-        $heads = [
-            'DNI',
-            'Nombres',
-            'Apellido Paterno',
-            'Apellido Materno',
-            'Estado',
-            ['label' => 'Actions', 'no-export' => true, 'width' => 5],
-        ];
+
+
 
         // dd($personas);
-        return view('personas.index',compact('Personas','heads'));
+        return view('personas.index');
     }
 
     /**
@@ -45,6 +38,12 @@ class PersonasController extends Controller
         // dd($personaBusqueda);
         return $personaBusqueda->paginate(10,['*'],'page',$request->page);
         // return $personaBusqueda->paginate(10);
+    }
+
+    public function ListadoPersonal(Request $request){
+        $Personas = Personas::paginate(100);
+
+        return $Personas;
     }
     /**
      * Store a newly created resource in storage.

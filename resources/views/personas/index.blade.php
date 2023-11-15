@@ -1,41 +1,51 @@
 @extends('adminlte::page')
 @section('content_header')
-    <h1>Listado de Personas</h1>
+    <h1></h1>
 @stop
 
 @section('content')
-
-    <div class="card">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <div class="container-fluid"></div>
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Listado de Personal:</h3>
+        </div>
         <div class="card-body">
-            <x-adminlte-datatable id="table1" :heads="$heads" striped  head-theme="dark">
-                @foreach($Personas as $p)
+            <table id="ListadoPersonal" style="width:100%">
+                <thead>
                     <tr>
-                        <td>{{ $p->VC_DNI }}</td>
-                        <td>{{ $p->VC_NOMBRE }}</td>
-                        <td>{{ $p->VC_APELLIDO_PATERNO }}</td>
-                        <td>{{ $p->VC_APELLIDO_MATERNO }}</td>
-                        <td>{{ $p->BT_ESTADO_FILA }}</td>
-                        <td>
-                            <div>   
-                                <button class="btn btn-xs btn-default text-primary mx-1 inline-block " title="Edit">
-                                    <i class="fa fa-lg fa-fw fa-pen"></i>
-                                    </button>
-                                    <button class="btn btn-xs btn-default text-danger mx-1 display: inline-block" title="Delete">
-                                        <i class="fa fa-lg fa-fw fa-trash"></i>
-                                    </button>
-                                    <button class="btn btn-xs btn-default text-teal mx-1 inline-block" title="Details">
-                                        <i class="fa fa-lg fa-fw fa-eye"></i>
-                                    </button>
-                            </div>
-                            
-                       
-                        </td>
+                        <th>DNI</th>
+                        <th>Nombres</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Estado</th>
                     </tr>
-                @endforeach
-            </x-adminlte-datatable>
+                </thead>
+            </table>
         </div>
     </div>
 
+    <script type="text/javascript">
+        $("#ListadoPersonal").dataTable({
+        ajax : {"cache": false,
+                "method":"GET",
+                "url":'{{URL('/Personas/ListadoPersonal')}}',
+                "dataType": "json",
+                "deferRender": true,},
+        columns: [
+                { data: 'name' },
+                { data: 'position' },
+                { data: 'office' },
+                { data: 'extn' },
+                { data: 'start_date' },
+                { data: 'salary' }
+            ]
+        });
+    </script>
+
+<script type="text/javascript" src="~/Scripts/jquery.js"></script>
+<script type="text/javascript" src="~/Scripts/data-table/jquery.dataTables.js"></script>
 @stop
 
 
