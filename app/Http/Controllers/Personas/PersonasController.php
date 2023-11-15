@@ -14,10 +14,8 @@ class PersonasController extends Controller
     public function index()
     {
 
-
-
-
-        // dd($personas);
+        // $Personas = Personas::all();        
+        // return view('personas.index',compact('Personas'));
         return view('personas.index');
     }
 
@@ -40,8 +38,8 @@ class PersonasController extends Controller
         // return $personaBusqueda->paginate(10);
     }
 
-    public function ListadoPersonal(Request $request){
-        $Personas = Personas::paginate(100);
+    public function ListadoPersonal(){
+        $Personas = Personas::all();
 
         return $Personas;
     }
