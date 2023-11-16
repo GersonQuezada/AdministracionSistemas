@@ -13,7 +13,7 @@
                 <form class="form-horizontal" method="GET">
                     <div class="input-group mb-3">
                         <input type="text" name = "search" class="form-control" placeholder="Escriba el nombre completo para buscar" aria-label="Escriba el nombre completo para buscar" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success" type="submit" id="button-addon2">Buscar</button>
+                        <button class="btn btn-outline-info" type="submit" id="button-addon2">Buscar</button>
                     </div>
                 </form>
 
@@ -35,7 +35,12 @@
                             <td> {{ $p->VC_NOMBRE}}</td>
                             <td>{{$p->VC_APELLIDO_PATERNO}}</td>
                             <td>{{$p->VC_APELLIDO_MATERNO}}</td>
-                            <td>{{$p->BT_ESTADO_FILA}}</td>
+                            @if ( $p->BT_ESTADO_FILA = 0)
+                                <td><img width="25px" height="25px"  src={{ asset('../img/failed.png') }}></td>
+                            @else
+                                <td><img width="25px" height="25px" src={{ asset('../img/accept.png') }}></td>
+                            @endif
+                            
                             <td>
                                 <a href="">Editar</a>
                                 <a href="">Ver</a>
