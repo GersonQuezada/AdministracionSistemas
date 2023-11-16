@@ -34,7 +34,7 @@ class PersonasController extends Controller
             return $query ->where('VC_NOMBRECOMPLETO','like','%'.request('search').'%');
         })
         ->paginate(8);
-dd($Personas);
+        dd($Personas);
         return view('personas.create');
     }
 
