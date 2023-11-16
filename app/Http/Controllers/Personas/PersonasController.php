@@ -14,9 +14,14 @@ class PersonasController extends Controller
     public function index()
     {
 
-        // $Personas = Personas::all();        
-        // return view('personas.index',compact('Personas'));
-        return view('personas.index');
+        $Personas = Personas::query()
+                    ->when(request('search'),function ($query) {
+                        return $query ->where('VC_NOMBRECOMPLETO','like','%'.request('search').'%');
+                    })
+                    ->paginate(8);
+        // dd($Personas);
+        return view('personas.index',compact('Personas'));
+        // return view('personas.index');
     }
 
     /**
@@ -39,7 +44,7 @@ class PersonasController extends Controller
     }
 
     public function ListadoPersonal(){
-        $Personas = Personas::all();
+        $Personas = Personas::paginate(500);
 
         return $Personas;
     }

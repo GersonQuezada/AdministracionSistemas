@@ -29,14 +29,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('/Personas',PersonasController::class);
-    // Route::get('/Personas/ListadoPersonal', [PersonasController::class,'ListadoPersonal']);
 
 });
 
 require __DIR__.'/auth.php';
 
-
+// Route::resource('/Personas',PersonasController::class);
 Route::get('/Persona/BusquedaSelect2',[PersonasController::class, 'BusquedaSelect2']);
 
 
-Route::get('/Personas/ListadoPersonal', [PersonasController::class,'ListadoPersonal']);
+// Route::get('/Personas/ListadoPersonal', [PersonasController::class,'ListadoPersonal']);

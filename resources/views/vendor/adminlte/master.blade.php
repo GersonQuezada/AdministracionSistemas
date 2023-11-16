@@ -11,6 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('../img/Logo.png') }}">
     <link rel="shortcut icon" sizes="192x192" href="{{ asset('../img/Logo.png') }}">
 
+
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
 
@@ -81,7 +82,7 @@
         {{-- datatable --}}
         <link href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
         <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-        
+
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>

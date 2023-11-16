@@ -321,8 +321,22 @@ return [
                     'url'  => '#',
                 ],
                 [
-                    'text' => 'Listado de Personas',
+                    'text' => 'Editar Datos de Personas',
                     'url'  => '/Personas',
+                ]
+            ]
+        ],
+        [
+            'text' => 'Usuarios',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Nuevo Registro',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Editar Datos de Personas',
+                    'url'  => '/',
                 ]
             ]
         ],
