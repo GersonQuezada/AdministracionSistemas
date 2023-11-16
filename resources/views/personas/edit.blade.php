@@ -1,12 +1,18 @@
-@extends('fragmentAll.layout')
-@section('Content')
+@extends('adminlte::page')
+@section('content_header')
+    <h1>Detalle del Personal</h1>
+@stop
 
-    <h1>Actualizar Categoria : {{ $category ->title}}</h1>
-    @include('fragmentAll._errors')
-    <form action={{ route('category.update',$category->id) }} method="post" >
-        @method("PUT")
-        @include('dashboard.category._form')
+@section('content')
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Listado de Personal:</h3>
+            </div>
+            <div class="card-body">
 
-    </form>
+            </div>
 
-@endsection
+        </div>
+    </div>
+@stop

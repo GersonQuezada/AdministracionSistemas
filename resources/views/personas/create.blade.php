@@ -1,11 +1,19 @@
-@extends('fragmentAll.layout')
+@extends('adminlte::page')
 
-@section('Content')
+@section('title', 'Dashboard')
 
-    <h1>Create Post</h1>
-    @include('fragmentAll._errors')
-    <form action={{ route('category.store') }} method="post">
-        @include('dashboard.category._form')
-    </form>
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
 
-@endsection
+@section('content')
+    <p>Welcome to this beautiful admin panel.</p>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

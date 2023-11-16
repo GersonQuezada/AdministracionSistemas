@@ -29,10 +29,13 @@ class PersonasController extends Controller
      */
     public function create()
     {
-
-        $personas = Personas::find(12);
-
-        dd($personas);
+        $Personas = Personas::query()
+        ->when(request('search'),function ($query) {
+            return $query ->where('VC_NOMBRECOMPLETO','like','%'.request('search').'%');
+        })
+        ->paginate(8);
+dd($Personas);
+        return view('personas.create');
     }
 
     public function BusquedaSelect2(Request $request){
@@ -43,11 +46,6 @@ class PersonasController extends Controller
         // return $personaBusqueda->paginate(10);
     }
 
-    public function ListadoPersonal(){
-        $Personas = Personas::paginate(500);
-
-        return $Personas;
-    }
     /**
      * Store a newly created resource in storage.
      */
