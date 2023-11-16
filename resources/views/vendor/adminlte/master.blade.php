@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('../img/Logo.png') }}">
     <link rel="shortcut icon" sizes="192x192" href="{{ asset('../img/Logo.png') }}">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
 

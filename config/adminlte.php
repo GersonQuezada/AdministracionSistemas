@@ -318,7 +318,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Nuevo Registro',
-                    'url'  => '#',
+                    'url'  => '/Personas/create',
                 ],
                 [
                     'text' => 'Editar Datos de Personas',

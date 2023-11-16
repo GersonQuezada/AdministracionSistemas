@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Personas;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Personas\StoreRequest;
 use App\Models\Personas;
 use Illuminate\Http\Request;
 
@@ -13,15 +14,12 @@ class PersonasController extends Controller
      */
     public function index()
     {
-
-        $Personas = Personas::query()
+        $personas = Personas::query()
                     ->when(request('search'),function ($query) {
                         return $query ->where('VC_NOMBRECOMPLETO','like','%'.request('search').'%');
                     })
                     ->paginate(8);
-        // dd($Personas);
-        return view('personas.index',compact('Personas'));
-        // return view('personas.index');
+        return view('personas.index',compact('personas'));
     }
 
     /**
@@ -29,13 +27,8 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        $Personas = Personas::query()
-        ->when(request('search'),function ($query) {
-            return $query ->where('VC_NOMBRECOMPLETO','like','%'.request('search').'%');
-        })
-        ->paginate(8);
-        dd($Personas);
-        return view('personas.create');
+        $personas = new Personas();
+        return view('personas.create',compact('personas'));
     }
 
     public function BusquedaSelect2(Request $request){
@@ -49,9 +42,17 @@ class PersonasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $data = array_merge($request->all(),['VC_USUARIO_CREACION' => auth()->user()->email ,
+                                            'VC_NOMBRECOMPLETO' => $request->VC_NOMBRE.' '.$request->VC_APELLIDO_PATERNO.' '.$request->VC_APELLIDO_MATERNO ]);
+        // dd( $data );
+        $mArray = array_map('strtoupper', $data);
+        // dd($mArray);
+        Personas::create($mArray);
+        return to_route('Personas.index');
     }
 
     /**
@@ -59,7 +60,9 @@ class PersonasController extends Controller
      */
     public function show(Personas $personas)
     {
-        //
+    //    dd($personas->id);
+        // return $personas->first();
+        return view('personas.show',compact('personas'));
     }
 
     /**
@@ -67,7 +70,9 @@ class PersonasController extends Controller
      */
     public function edit(Personas $personas)
     {
-        //
+
+        // dd(  );
+        return view('personas.edit',compact('personas'));
     }
 
     /**
@@ -83,6 +88,7 @@ class PersonasController extends Controller
      */
     public function destroy(Personas $personas)
     {
-        //
+        $personas->delete();
+        return to_route('Personas.index');
     }
 }
