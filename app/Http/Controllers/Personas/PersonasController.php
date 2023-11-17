@@ -27,8 +27,8 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        $personas = new Personas();
-        return view('personas.create',compact('personas'));
+        $persona = new Personas();
+        return view('personas.create',compact('persona'));
     }
 
     public function BusquedaSelect2(Request $request){

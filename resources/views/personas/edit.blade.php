@@ -15,8 +15,8 @@
             @method("PUT")
             @include('personas._form',["task" => "edit"])
             <div class="card-footer">
-                <input type="submit" class="btn btn-success" value="Grabar">
-                <input type="buttom" class="btn btn-success" value="Volver">
+                <input type="button" class="btn btn-success" value="Grabar">
+                <input type="button" class="btn btn-info"  value="Volver" onclick="Regresar();">
             </div>
         </form>
     </div>
@@ -25,10 +25,11 @@
 
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script type="text/javascript">    
+        function Regresar() {
+            location.href = "{{route('Personas.index')}}";
+        }       
+    </script>
 @stop
