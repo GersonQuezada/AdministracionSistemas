@@ -14,12 +14,12 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $personas = Personas::query()
+        $persona = Personas::query()
                     ->when(request('search'),function ($query) {
                         return $query ->where('VC_NOMBRECOMPLETO','like','%'.request('search').'%');
                     })
                     ->paginate(8);
-        return view('personas.index',compact('personas'));
+        return view('personas.index',compact('persona'));
     }
 
     /**
@@ -58,21 +58,21 @@ class PersonasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Personas $personas)
+    public function show(String $id)
     {
-    //    dd($personas->id);
-        // return $personas->first();
-        return view('personas.show',compact('personas'));
+        $persona = Personas::find($id);
+        // return $persona;
+        return view('personas.show',compact('persona'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Personas $personas)
+    public function edit(String $id)
     {
-
+        $persona = Personas::find($id);
         // dd(  );
-        return view('personas.edit',compact('personas'));
+        return view('personas.edit',compact('persona'));
     }
 
     /**

@@ -13,9 +13,10 @@
         </div>
         <form class="form-horizontal" action="#" method="post">
             @method("PUT")
-            @include('personas._form')
+            @include('personas._form',["task" => "edit"])
             <div class="card-footer">
                 <input type="submit" class="btn btn-success" value="Grabar">
+                <input type="buttom" class="btn btn-success" value="Volver">
             </div>
         </form>
     </div>

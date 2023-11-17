@@ -10,7 +10,7 @@
                 <h3 class="card-title">Listado de Personal:</h3>
             </div>
             <div class="card-body">
-                <p>{{ $personas ->VC_DNI }}</p>
+                <p>{{ $persona ->VC_DNI }}</p>
                 <p>123123123</p>
             </div>
 

@@ -31,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody class="text-sm border">
-                            @foreach ($personas as $p)
+                            @foreach ($persona as $p)
                             <tr>
                                 <td class="border" >
                                     <div class="row">
@@ -63,7 +63,7 @@
 
             <div class="card-footer clearfix">
                 <ul class="pagination-sm m-0 float-right">
-                    {{$personas->links()}}
+                    {{$persona->links()}}
                 </ul>
             </div>
         </div>
