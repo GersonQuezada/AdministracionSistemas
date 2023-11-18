@@ -36,7 +36,7 @@
                                 <td class="border" >
                                     <div class="row">
                                         <a  class="btn btn-success" href="{{ route('Personas.show',$p) }}"><i class="bi bi-eye-fill"></i></a>
-                                        <a  class="btn btn-info ml-1" href="{{ route('Personas.edit',$p) }}"><i class="bi bi-clipboard2-check"></i></a>
+                                        <a  class="btn btn-info ml-1" href="" data-toggle="modal" data-target="#modal-lg" ><i class="bi bi-clipboard2-check"></i></a>
                                         <form action="{{ route('Personas.destroy',$p) }}" method="post">
                                             @method("DELETE")
                                             @csrf
@@ -53,7 +53,7 @@
                                 @else
                                     <td><img width="25px" height="25px" src={{ asset('../img/accept.png') }}></td>
                                 @endif
-
+                                @include('personas.modal')
                             </tr>
                             @endforeach
                         </tbody>

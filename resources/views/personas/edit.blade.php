@@ -5,7 +5,6 @@
 @stop
 
 @section('content')
-
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
@@ -15,21 +14,25 @@
             @method("PUT")
             @include('personas._form',["task" => "edit"])
             <div class="card-footer">
-                <input type="button" class="btn btn-success" value="Grabar">
+                <input type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg" value="Grabar">
                 <input type="button" class="btn btn-info"  value="Volver" onclick="Regresar();">
+
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
+                    Launch Large Modal
+                  </button>
             </div>
+
         </form>
     </div>
+
 </div>
-
-
 @stop
 
 
 @section('js')
-    <script type="text/javascript">    
+    <script type="text/javascript">
         function Regresar() {
             location.href = "{{route('Personas.index')}}";
-        }       
+        }
     </script>
 @stop
