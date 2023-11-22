@@ -328,14 +328,14 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-users',
             'submenu' => [
                 [
                     'text' => 'Nuevo Registro',
                     'url'  => '#',
                 ],
                 [
-                    'text' => 'Editar Datos de Personas',
+                    'text' => 'Editar Datos de Usuarios',
                     'url'  => '/',
                 ]
             ]
