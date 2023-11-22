@@ -17,6 +17,7 @@ class Personas extends Model
         'VC_APELLIDO_MATERNO',
         'VC_NOMBRECOMPLETO',
         'VC_DNI',
-        'VC_USUARIO_CREACION',
+        'VC_USUARIO_CREACION',        
+        'BT_ESTADO_FILA',
     ];
 }

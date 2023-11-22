@@ -71,24 +71,32 @@ class PersonasController extends Controller
     public function edit(String $id)
     {
         $persona = Personas::find($id);
-        // dd(  );
         return view('personas.edit',compact('persona'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Personas $personas)
+    public function update(Request $request, String $id)
     {
-        //
+        $datos = $request->validate([
+            "VC_NOMBRE" => "required|min:3",
+            "VC_APELLIDO_PATERNO" => "required|min:3",
+            "VC_APELLIDO_MATERNO" => "required|min:3",
+            "BT_ESTADO_FILA" => "required"
+
+        ]);         
+        Personas::where('id','=',$id )->update($datos);        
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Personas $personas)
+    public function destroy(String $id)
     {
-        $personas->delete();
-        return to_route('Personas.index');
+        $persona = Personas::find($id);
+        $persona->delete();
+        return redirect()->back();
     }
 }

@@ -12,7 +12,13 @@
             <h3 class="card-title">Informacion Basica:</h3>
         </div>
         <form class="form-horizontal" action={{ route('Personas.store')}} method="post">
-            @include('personas._form')
+            <div class="card-body">
+                <div class="row">            
+                    <div class="col-md-6">
+                        @include('personas._form')
+                    </div>
+                </div>
+            </div>
             <div class="card-footer">
                 <input type="submit" class="btn  btn-outline-success" value="Registrar">
             </div>
