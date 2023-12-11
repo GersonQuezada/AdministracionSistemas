@@ -34964,16 +34964,27 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   text-align: center;
 }
 
+.login-header{
+    background-color: #1A2E37;
+}
+
+.login-header h3{
+    color: white;
+}
+
 .login-logo a,
 .register-logo a {
-  color: #495057;
+  color: white;
 }
 
 .login-page,
 .register-page {
   -ms-flex-align: center;
   align-items: center;
-  background-color: #e9ecef;
+  /* background-color: #263646; */
+  /* background-color: transparent; */
+  background-image: url('../../../../../img/1500x844-erp-system.jpg');
+  background-size: cover;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -34985,13 +34996,21 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .login-box,
 .register-box {
+    /* background-color: #1A2E37; */
+    display: block;
+    margin-left: 65%;
+    /* right : 250px; */
   width: 360px;
 }
 
 @media (max-width: 576px) {
   .login-box,
   .register-box {
-    margin-top: .5rem;
+    margin-top: 0.25rem;
+    display : block;
+    margin-right: auto;
+    margin-left: auto;
+
     width: 90%;
   }
 }
@@ -35003,7 +35022,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .login-card-body,
 .register-card-body {
-  background-color: #fff;
+  background-color: #1A2E37;
   border-top: 0;
   color: #666;
   padding: 20px;
@@ -35045,7 +35064,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .login-card-body .input-group .form-control.is-invalid ~ .input-group-append .input-group-text,
 .register-card-body .input-group .form-control.is-invalid ~ .input-group-append .input-group-text {
-  border-color: #dc3545;
+  border-color: #001932;
 }
 
 .login-card-body .input-group .input-group-text,

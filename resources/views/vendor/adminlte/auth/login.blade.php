@@ -25,13 +25,13 @@
         @csrf
 
         {{-- Email field --}}
-        <div class="input-group mb-3">
-            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+        <div style = "border : 2px solid #284B5E; box-shadow : 0 0  10px #284B5E, inset 0 0 10px #284B5E ;" class="input-group mb-3">
+            <input style =  "background-color: transparent ; color:white "  type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                    value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span  class="fas fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -43,8 +43,8 @@
         </div>
 
         {{-- Password field --}}
-        <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+        <div style = "border : 2px solid #284B5E; box-shadow : 0 0  10px #284B5E, inset 0 0 10px #284B5E ;" class="input-group mb-3">
+            <input  style =  "background-color: transparent; color: white"  type="password" name="password" class="form-control @error('password') is-invalid @enderror"
                    placeholder="{{ __('adminlte::adminlte.password') }}">
 
             <div class="input-group-append">
@@ -94,11 +94,11 @@
     @endif
 
     {{-- Register link --}}
-    @if($register_url)
+    {{-- @if($register_url)
         <p class="my-0">
             <a href="{{ $register_url }}">
                 {{ __('adminlte::adminlte.register_a_new_membership') }}
             </a>
         </p>
-    @endif
+    @endif --}}
 @stop
