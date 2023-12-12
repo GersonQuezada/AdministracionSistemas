@@ -51,21 +51,24 @@
 
             {{-- Card Header --}}
             @hasSection('auth_header')
-                <div class="card-header {{ config('adminlte.classes_auth_header', '') }}">
-                    <h3 class="card-title float-none text-center">
-                        @yield('auth_header')
+                {{-- <div class="card-header {{ config('adminlte.classes_auth_header', '') }}"> --}}
+                <div class="card-body {{ $auth_type ?? 'login' }}-card-body {{ config('adminlte.classes_auth_body', '') }}">
+                    <h3 style="color: white; padding: 0px 0px 20px;" class="card-title float-none text-center">
+                        {{-- @yield('auth_header') --}}
+                        Iniciar Sesión
                     </h3>
-                </div>
-            @endif
+                {{-- </div>
+            @endif --}}
 
             {{-- Card Body --}}
-            <div class="card-body {{ $auth_type ?? 'login' }}-card-body {{ config('adminlte.classes_auth_body', '') }}">
+            {{-- <div class="card-body {{ $auth_type ?? 'login' }}-card-body {{ config('adminlte.classes_auth_body', '') }}"> --}}
                 @yield('auth_body')
-            </div>
+            {{-- </div> --}}
 
             {{-- Card Footer --}}
-            @hasSection('auth_footer')
-                <div class="card-footer {{ config('adminlte.classes_auth_footer', '') }}">
+            {{-- @hasSection('auth_footer') --}}
+                {{-- <div class="card-footer {{ config('adminlte.classes_auth_footer', '') }}"> --}}
+                    <p>
                     @yield('auth_footer')
                 </div>
             @endif

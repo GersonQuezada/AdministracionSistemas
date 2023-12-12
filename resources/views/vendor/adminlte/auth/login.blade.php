@@ -25,7 +25,7 @@
         @csrf
 
         {{-- Email field --}}
-        <div style = "border : 2px solid #284B5E; box-shadow : 0 0  10px #284B5E, inset 0 0 10px #284B5E ;" class="input-group mb-3">
+        <div style = "border : 2px solid white; box-shadow : 0 0  10px #ffffff, inset 0 0 10px #ffffff ;" class="input-group mb-3">
             <input style =  "background-color: transparent ; color:white "  type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                    value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
 
@@ -43,7 +43,7 @@
         </div>
 
         {{-- Password field --}}
-        <div style = "border : 2px solid #284B5E; box-shadow : 0 0  10px #284B5E, inset 0 0 10px #284B5E ;" class="input-group mb-3">
+        <div style = "border : 2px solid #ffffff; box-shadow : 0 0  10px #ffffff, inset 0 0 10px #ffffff ;" class="input-group mb-3">
             <input  style =  "background-color: transparent; color: white"  type="password" name="password" class="form-control @error('password') is-invalid @enderror"
                    placeholder="{{ __('adminlte::adminlte.password') }}">
 
@@ -66,7 +66,7 @@
                 <div class="icheck-primary" title="{{ __('adminlte::adminlte.remember_me_hint') }}">
                     <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                    <label for="remember">
+                    <label style="color: #ffffff" for="remember">
                         {{ __('adminlte::adminlte.remember_me') }}
                     </label>
                 </div>
@@ -87,7 +87,7 @@
     {{-- Password reset link --}}
     @if($password_reset_url)
         <p class="my-0">
-            <a href="{{ $password_reset_url }}">
+            <a style="color: #ffffff" href="{{ $password_reset_url }}">
                 {{ __('adminlte::adminlte.i_forgot_my_password') }}
             </a>
         </p>

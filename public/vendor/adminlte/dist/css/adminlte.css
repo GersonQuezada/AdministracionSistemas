@@ -10156,6 +10156,7 @@ button.bg-dark:focus {
 
 .font-weight-light {
   font-weight: 300 !important;
+  font-size: 95% !important;
 }
 
 .font-weight-lighter {
@@ -34964,14 +34965,6 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   text-align: center;
 }
 
-.login-header{
-  background : linear-gradient(90deg ,#1F3B47 , #181C1D);
-}
-
-.login-header h3{
-    color: white;
-}
-
 .login-logo a,
 .register-logo a {
   color: white;
@@ -34994,8 +34987,13 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   justify-content: center;
 }
 
+.card-login {
+    background-color: transparent;
+}
+
 .login-box,
 .register-box {
+    background-color: transparent;
     /* background-color: #1A2E37; */
     display: block;
     margin-left: 65%;
@@ -35022,9 +35020,11 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .login-card-body,
 .register-card-body {
-  background : linear-gradient(90deg ,#1F3B47 , #181C1D);
+  background : linear-gradient( 113deg , #01A297 ,  #137D8E , #225885 , #234B7D , #2F2E77 );
+
   border-top: 0;
-  color: #666;
+  border-radius: 15px ;
+  /* color: #666; */
   padding: 20px;
 }
 

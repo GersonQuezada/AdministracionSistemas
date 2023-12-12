@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Sistema Autentificacion Usuarios',
+    'title' => 'Sistema Admistrativo Credimujer',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => 'Sistema Usuarios',
+    'logo' => 'AdminPanel Credimujer',
     'logo_img' => '../img/Logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -167,7 +167,7 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-black',
+    'classes_auth_card' => 'card-login',
     'classes_auth_header' => 'login-header',
     'classes_auth_body' => '',
     'classes_auth_footer' => 'login-header',
