@@ -12862,7 +12862,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*="sidebar-dark-"] {
-  background-color: #343a40;
+  background: linear-gradient(125deg, #001932 , #00366d , #000b16) ;
 }
 
 [class*="sidebar-dark-"] .user-panel a:hover {
@@ -34965,7 +34965,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 }
 
 .login-header{
-    background-color: #1A2E37;
+  background : linear-gradient(90deg ,#1F3B47 , #181C1D);
 }
 
 .login-header h3{
@@ -35022,7 +35022,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 .login-card-body,
 .register-card-body {
-  background-color: #1A2E37;
+  background : linear-gradient(90deg ,#1F3B47 , #181C1D);
   border-top: 0;
   color: #666;
   padding: 20px;
