@@ -10,13 +10,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 col-6">
-                <div class="small-box bg-warning">
+                <div class="small-box" style=" background: linear-gradient(45deg , black , purple)" >
                     <div class="inner">
                         <h3>56</h3>
-                        <p>Usuarios Registrados</p>
+                        <p>Personas Registradas</p>
                     </div>
                     <div class="icon">
-                        <i class="ion bi-person-add"></i>                    
+                        <i class="ion fa-solid fa-person-circle-plus"></i>                 
                     </div>
                     <a href="{{ route('Personas.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
