@@ -85,8 +85,8 @@ class PersonasController extends Controller
             "VC_APELLIDO_MATERNO" => "required|min:3",
             "BT_ESTADO_FILA" => "required"
 
-        ]);         
-        Personas::where('id','=',$id )->update($datos);        
+        ]);
+        Personas::where('id','=',$id )->update($datos);
         return redirect()->back();
     }
 
@@ -97,6 +97,6 @@ class PersonasController extends Controller
     {
         $persona = Personas::find($id);
         $persona->delete();
-        return redirect()->back();
+        return redirect()->back()->with('eliminar','ok');
     }
 }

@@ -13,7 +13,7 @@
             <div class="col-lg-3 col-6">
                 <div class="small-box" style=" background: linear-gradient(45deg , #35155D , #512B81 , #4477CE , #8CABFF )" >
                     <div class="inner">
-                        <h3 style="color: white">21500</h3>
+                        <h3 style="color: white">{{ $persona }}</h3>
                         <p style="color: white">Personas Registradas</p>
                     </div>
                     <div class="icon">

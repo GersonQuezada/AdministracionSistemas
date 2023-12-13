@@ -37,7 +37,7 @@
                                     <div class="row">
                                         {{-- <a  class="btn btn-success" href="{{ route('Personas.show',$p->id) }}"><i class="bi bi-eye-fill"></i></a> --}}
                                         <a  class="btn btn-info ml-1" href="" data-toggle="modal" data-target="#modal-lg{{$p->id}}" ><i class="bi bi-clipboard2-check"></i></a>
-                                        <form action="{{ route('Personas.destroy',$p->id) }}" method="post">
+                                        <form  class="formulario-eliminar"  action="{{ route('Personas.destroy',$p->id) }}" method="post">
                                             @method("DELETE")
                                             @csrf
                                             <button  class="btn btn-danger ml-1"><i class="bi bi-x-circle-fill"></i></button>
@@ -69,4 +69,36 @@
     </div>
 @stop
 
+@section('js')
+    @if (session('eliminar') == 'ok')
+        <script>
+            Swal.fire({
+                title: "Eliminado!",
+                text: "Se ha eliminado el Registro.",
+                type: "success"
+                });
+        </script>
+    @endif
 
+    <script>
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: "¿Esta seguro de ELiminar?",
+                text: "Este proceso no tiene reversion!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, eliminar!",
+                cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.value === true) {
+                        // console.log(result.value);
+                        this.submit();
+                    }
+                });
+        });
+    </script>
+
+@endsection

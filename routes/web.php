@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Personas\PersonaController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Personas\PersonasController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('vendor/adminlte/auth/login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
