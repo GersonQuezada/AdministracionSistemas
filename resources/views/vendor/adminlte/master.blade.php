@@ -85,8 +85,32 @@
         <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
         {{-- fontawesome --}}
         <link href="{{asset('fontawesome/css/all.css')}}" rel="stylesheet" />
+        {{-- sweetalert2 --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
+
+
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ld6tTEpAAAAAMRRvM_r8z3BtPlcZf16ozXEuTRj"></script>
+
+
+        <script>
+            document.addEventListener('submit', function(e){
+                e.preventDefault();
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6Ld6tTEpAAAAAMRRvM_r8z3BtPlcZf16ozXEuTRj', {action: 'submit'}).then(function(token) {
+                        let form = e.target;
+                        let input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = 'g-recaptcha-response';
+                        input.value = token;
+                        form.appendChild(input);
+
+                        form.submit();
+                    });
+                });
+            });
+
+        </script>
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>

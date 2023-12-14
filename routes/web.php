@@ -27,8 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resource('Personas', PersonasController::class)->only(['index','destroy','update']);
-    Route::resource('Usuarios', UsuariosController::class)->only(['index','destroy','update']);
+    Route::resource('Personas', PersonasController::class)->only(['index','destroy','update','create','store']);
+    Route::resource('Usuarios', UsuariosController::class)->only(['index','destroy','update','create']);
 
 
 });

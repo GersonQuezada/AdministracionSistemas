@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -23,13 +24,26 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        // return $request->all();
 
-        $request->session()->regenerate();
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify',
+        [
+            'secret' => env('CAPTCHA_SECRET'),
+            'response' => $request->input('g-recaptcha-response')
+        ])->object();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if( $response->success && $response->score >= 0.7) {
+            $request->authenticate();
+
+            $request->session()->regenerate();
+
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+
+        // return $response;
+
     }
 
     /**

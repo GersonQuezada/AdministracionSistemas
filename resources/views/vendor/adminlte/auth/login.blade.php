@@ -21,7 +21,7 @@
 @section('auth_header', __('adminlte::adminlte.login_message'))
 
 @section('auth_body')
-    <form action="{{ $login_url }}" method="post">
+    <form id = "demo-form" action="{{ $login_url }}" method="post">
         @csrf
 
         {{-- Email field --}}
@@ -60,6 +60,12 @@
             @enderror
         </div>
 
+        {{-- <div class="input-group mb-3">
+            <strong> Google reCaptcha </strong>
+            {!! NoCaptcha::renderJs() !!}
+            {!! NoCaptcha::display() !!}
+        </div> --}}
+
         {{-- Login field --}}
         <div class="row">
             <div class="col-7">
@@ -73,7 +79,7 @@
             </div>
 
             <div class="col-5">
-                <button type=submit class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
+                <button type=submit class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}" >
                     <span class="fas fa-sign-in-alt"></span>
                     {{ __('adminlte::adminlte.sign_in') }}
                 </button>
@@ -101,4 +107,8 @@
             </a>
         </p>
     @endif --}}
+@stop
+
+@section('js')
+
 @stop
