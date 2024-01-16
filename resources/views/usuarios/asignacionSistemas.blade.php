@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>Registro de Informacion Personal:</h1>
+    <h1>Registro de Usuarios 2:</h1>
 @stop
 
 @section('content')
@@ -11,28 +11,21 @@
         <div class="card-header">
             <h3 class="card-title">Informacion Basica:</h3>
         </div>
-        <form class="form-horizontal" action={{ route('Personas.store')}} method="post">
+        <form class="form-horizontal" action= {{ route('Usuarios.store') }}  method="post">
             <div class="card-body">
-                <div class="row">            
+                <div class="row">
                     <div class="col-md-6">
-                        @include('personas._form')
+                        @csrf
+
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <input type="submit" class="btn  btn-outline-success" value="Registrar">
+                {{-- <input type="submit" class="btn  btn-outline-success" value="Registrar"> --}}
             </div>
         </form>
     </div>
 </div>
 
 
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

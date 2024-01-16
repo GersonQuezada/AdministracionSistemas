@@ -99,6 +99,24 @@
 
     </form>
 
+@stop
+
+@section('js')
+    <script>
+        console.log(session());
+    </script>
+
+    @if (session('registrado') == 'ok')
+    <script>
+        Swal.fire({
+            title: "Registrado!",
+            text: "Usuario registrado correctamente.",
+            type: "success"
+            });
+
+
+    </script>
+    @endif
     <script type="text/javascript">
         $("#name").select2();
         $("#name").select2({
@@ -141,7 +159,7 @@
             return data.VC_NOMBRECOMPLETO
         }
     </script>
-@stop
+@endsection
 
 @section('auth_footer')
     <p class="my-0">

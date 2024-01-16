@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Usuarios;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 class UsuariosController extends Controller
 {
     /**
@@ -26,8 +30,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        $persona = new User();
-        return view('personas.create',compact('persona'));
+        $usuario = new User();
+        return view('auth.register',compact('usuario'));
     }
 
     public function BusquedaSelect2(Request $request){
@@ -38,21 +42,7 @@ class UsuariosController extends Controller
         // return $personaBusqueda->paginate(10);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $data = $request->validated();
 
-        $data = array_merge($request->all(),['VC_USUARIO_CREACION' => auth()->user()->email ,
-                                            'VC_NOMBRECOMPLETO' => $request->VC_NOMBRE.' '.$request->VC_APELLIDO_PATERNO.' '.$request->VC_APELLIDO_MATERNO ]);
-        // dd( $data );
-        $mArray = array_map('strtoupper', $data);
-        // dd($mArray);
-        User::create($mArray);
-        return to_route('Personas.index');
-    }
 
     /**
      * Display the specified resource.

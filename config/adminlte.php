@@ -172,7 +172,7 @@ return [
     'classes_auth_body' => '',
     'classes_auth_footer' => 'login-header',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-outline-light',
+    // 'classes_auth_btn' => 'btn-flat btn-outline-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -331,11 +331,15 @@ return [
             'icon' => 'fas fa-fw fa-users',
             'submenu' => [
                 [
-                    'text' => 'Nuevo Registro',
-                    'url'  => '#',
+                    'text' => 'Crear nuevo Usuario',
+                    'url'  => '/Usuarios/create',
                 ],
                 [
-                    'text' => 'Editar Datos de Usuarios',
+                    'text' => 'Asignar Sistemas a Usuario',
+                    'url'  => '/',
+                ],
+                [
+                    'text' => 'Asignar Roles de Sistemas a Usuarios',
                     'url'  => '/',
                 ]
             ]

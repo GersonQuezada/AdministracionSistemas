@@ -1,4 +1,10 @@
+@inject('layoutHelper', 'JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper')
+
 @extends('adminlte::page')
+        {{-- Preloader Animation --}}
+        @if($layoutHelper->isPreloaderEnabled())
+            @include('adminlte::partials.common.preloader')
+        @endif
 
 @section('title', 'Dashboard')
 
@@ -8,6 +14,9 @@
 @stop
 
 @section('content')
+    @if($layoutHelper->isPreloaderEnabled())
+        @include('adminlte::partials.common.preloader')
+    @endif
     <div class="container-fluid" >
         <div class="row">
             <div class="col-lg-3 col-6">
@@ -25,7 +34,7 @@
             <div class="col-lg-3 col-6">
                 <div class="small-box" style=" background: linear-gradient(45deg , #3795BD , #2F58CD , #4E31AA , #3A1078 )" >
                     <div class="inner">
-                        <h3 style="color: white">130</h3>
+                        <h3 style="color: white">{{ $usuarios}}</h3>
                         <p style="color: white">Usuarios Registradas</p>
                     </div>
                     <div class="icon">

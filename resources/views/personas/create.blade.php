@@ -13,7 +13,7 @@
         </div>
         <form class="form-horizontal" action={{ route('Personas.store')}} method="post">
             <div class="card-body">
-                <div class="row">            
+                <div class="row">
                     <div class="col-md-6">
                         @include('personas._form')
                     </div>
@@ -33,6 +33,4 @@
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+
